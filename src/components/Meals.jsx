@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MealItem from "./MealItem";
 import useHttp from "./hooks/useHttp";
+import Error from "./Error";
 
 const requestConfig = {}; //must be defined like this or it gives an error
 
@@ -12,7 +13,11 @@ export default function Meals() {
     } = useHttp('http://localhost:3000/meals', requestConfig, []); //passing an empty object and array as config and initialData to the custom hook
     
     if(isLoading) {
-        return <p>Fetching meals...</p>
+        return <p className="center">Fetching meals...</p>
+    }
+
+    if(error) {
+        return <Error title="Failed to fetch meals" message={error} />
     }
 
     // if(!data) {

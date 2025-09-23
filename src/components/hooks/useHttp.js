@@ -1,11 +1,7 @@
-import { configs } from "eslint-plugin-react-refresh";
 import { useEffect, useState, useCallback } from "react";
 
 async function sendHttpRequest(url, config) {
-    const response = fetch(url, config);
-    console.log("Url: " + url);
-    console.log("Config: " + config);
-    console.log("Response: " + response);
+    const response = await fetch(url, config);
     const resData = await response.json();
     
     if(!response.ok) {
