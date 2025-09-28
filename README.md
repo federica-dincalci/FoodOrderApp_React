@@ -75,6 +75,7 @@ Follow these steps to run the project locally:
 3. Start the backend  
    ```bash
    cd backend
+   npm install
    npm start 
    ```
 
